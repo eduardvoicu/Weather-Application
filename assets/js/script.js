@@ -30,7 +30,14 @@ function initPage() {
         console.log(currentDate);
         const day = currentDate.getDate();
         const month = currentDate.getMonth() + 1;
-
+        const year = currentDate.getFullYear();
+        nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+        let weatherPic = response.data.weather[0].icon;
+        currentPicEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+        currentPicEl.setAttribute("alt",response.data.weather[0].description);
+        currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
+        currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
+        currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
 
 
