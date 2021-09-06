@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   
+   <head>
+      <title>Weather Forecast</title>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./assets/css/style.css">
+   </head>
+   
+   <body>
+      <h1>Weather Forecast</h1>
+      <main>
+        
+        <div class="col-12 col-md-4">
+            <div class="card">
+              <h3 class="card-header">Search By City:</h3>
+              <form id="user-form" class="card-body">
+                <label class="form-label" for="searchForm1">City:</label>
+                <input name="searchForm1" id="searchInput" type="text" autofocus="true" class="form-input" />
+                <button id="searchButton" type="submit" class="btn">Search</button>
+              </form>
+            </div>
+      
+            <div class="card">
+              <h3 class="card-header">Search History:</h3>
+              <div id="searchList" class="card-body">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="weatherBoxes">
+        <div class="weatherContent" class="col-12 col-md-8">
+            <h2 class="cityChoice">Current Weather:</h2>
+            <div class="cityInfo"></div>
+        </div>
+        <div class="weatherContent1" class="col-12 col-md-8">
+            <h2 class="fiveDay">5 Day Forecast:</h2>
+            <div id="repos-container" class="list-group"></div>
+        </div>
+        </div>
+
+    </main>
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="./assets/js/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+   </body>   
+</html>
