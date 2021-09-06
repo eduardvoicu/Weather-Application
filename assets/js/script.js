@@ -8,6 +8,29 @@ function initPage() {
     const currentTempEl = document.getElementById("temperature");
     const currentHumidityEl = document.getElementById("humidity");4
     const currentWindEl = document.getElementById("wind-speed");
+    const currentUVEl = document.getElementById("UV-index");
+    const historyEl = document.getElementById("history");
+    let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+    console.log(searchHistory);
+
+    // API KEY variable
+    var key = "213cba83ade6abe9c240474e66a3a22f";
+
+    // When user enters city name and clicks search, function will start
+    // It is using the saved CITY name to execute the CURRENT conditions from the OpenWeaterAPI
+    function getWeather(cityName) {
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
+        axios.get(queryURL)
+        .then(function(response){
+            console.log(response);
+    // Parse response so it displays current conditions
+    // Used https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date as reference
+    // to use the "date" objects.
+        const currentDate = new Date(response.data.dt*1000);
+        console.log(currentDate);
+        const day = currentDate.getDate();
+        const month = currentDate.getMonth() + 1;
+
 
 
 
