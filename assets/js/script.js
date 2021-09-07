@@ -65,12 +65,24 @@ function searchCity(cityname) {
         for (var i = 0; i < results.length; i += 8) {
             var fiveDayDiv = $("<div class='card shadow-lg text-white bg-primary mx-auto mb-10 p-2' style='width: 8.5rem; height: 11rem;'>");
             
-            //variables below will store the responses for the info it called earlier
+            // variables below will store the responses for the info it called earlier
             var date = results[i].dt_txt;
             var setD = date.substr(0,10)
             var temp = results[i].main.temp;
             var hum = results[i].main.humidity;
-            
+            // variable that create tags with results from retrieved information from earlier
+            var h5date = $("<h5 class='card-title'>").text(setD);
+            var pTemp = $("<p class='card-text'>").text("Temp: " + temp);;
+            var pHum = $("<p class='card-text'>").text("Humidity " + hum);;
+
+            var weather = results[i].weather[0].main
+            // 
+            if (weather === "Rain") {
+                var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
+                icon.attr("style", "height: 40px; width: 40px");
+            } else if (weather === "Clouds") {
+                var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
+                icon.attr("style", "height: 40px; width: 40px");
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
