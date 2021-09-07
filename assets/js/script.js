@@ -58,7 +58,19 @@ function searchCity(cityname) {
         method: 'GET'
     }).then(function (response) {
         // Results variable is storing an array of the results.
-        
+        var results = response.list;
+        // creating the 5 day div spaces below will
+        $("#5day").empty();
+        // HTML for the 5 day Forecast below
+        for (var i = 0; i < results.length; i += 8) {
+            var fiveDayDiv = $("<div class='card shadow-lg text-white bg-primary mx-auto mb-10 p-2' style='width: 8.5rem; height: 11rem;'>");
+            
+            //variables below will store the responses for the info it called earlier
+            var date = results[i].dt_txt;
+            var setD = date.substr(0,10)
+            var temp = results[i].main.temp;
+            var hum = results[i].main.humidity;
+            
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
