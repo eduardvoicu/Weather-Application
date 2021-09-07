@@ -51,7 +51,13 @@ function searchCity(cityname) {
         newDiv.append(displayMainDate, currentIcon, tempEL, humEl, windEl);
 
         $("#current").html(newDiv);
-
+    
+    // 5 Day Forecast
+    $.ajax({
+        url: queryURLforcast,
+        method: 'GET'
+    }).then(function (response) {
+        // Results variable is storing an array of the results.
         
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
