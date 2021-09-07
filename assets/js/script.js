@@ -28,6 +28,14 @@ function searchCity(cityname) {
         } else if (currentweather === "Clouds") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
+        } else if (currentweather === "Clear") {
+            var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/01d.png");
+            currentIcon.attr("style", "height: 60px; width: 60px");
+        }
+        else if (currentweather === "Drizzle") {
+           var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
+           currentIcon.attr("style", "height: 60px; width: 60px");
+        
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
