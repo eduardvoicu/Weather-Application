@@ -13,14 +13,21 @@ function searchCity(cityname) {
         console.log(queryURL);
         // content will be put in empty divs with respective IDs
         $("#current").empty();
-       var mainDate = moment().format('L');
+        var mainDate = moment().format('L');
 
-       var cityNameEl = $("<h2>").text(response.name);
-       var displayMainDate = cityNameEl.append(" " + mainDate);
-       var tempEL = $("<p>").text("Tempraturer: " + response.main.temp);
-       var humEl = $("<p>").text("Humidity: " + response.main.humidity);
-       var windEl = $("<p>").text("Wind Speed: " + response.wind.speed);
-       var currentweather = response.weather[0].main;
+        var cityNameEl = $("<h2>").text(response.name);
+        var displayMainDate = cityNameEl.append(" " + mainDate);
+        var tempEL = $("<p>").text("Tempraturer: " + response.main.temp);
+        var humEl = $("<p>").text("Humidity: " + response.main.humidity);
+        var windEl = $("<p>").text("Wind Speed: " + response.wind.speed);
+        var currentweather = response.weather[0].main;
+
+        if (currentweather === "Rain") {
+            var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
+            currentIcon.attr("style", "height: 60px; width: 60px");
+        } else if (currentweather === "Clouds") {
+            var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
+            currentIcon.attr("style", "height: 60px; width: 60px");
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
@@ -76,7 +83,7 @@ function searchCity(cityname) {
 //         currentUVEl.innerHTML = "UV Index: ";
 //         currentUVEl.append(UVIndex);
 //     });
-    
+
 
 
 
@@ -98,19 +105,19 @@ function searchCity(cityname) {
 // // $("#searchButton").click(function() {
 // //     city = $("#searchInput").val();
 // //     // fetchAPI();
-  
+
 // //     var checkArray = searchHistory.includes(city);
-  
+
 // //     if (checkArray == true) {
 // //         return;
 // //     } else {
 // //         searchHistory.push(city);
 // //         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-  
+
 // //         var historyButton = $("<a>").attr({
 // //             class: "list-group-item list-group-item-action",
 // //             href: "#",
-  
+
 // //         });
 // //         historyButton.text(city);
 // //         $("#searchList").append(historyButton);
@@ -120,29 +127,29 @@ function searchCity(cityname) {
 // //     city = $(this).text();
 // //     // fetchAPI();
 // //   });
-  
-  
+
+
 // //   var searchHistory = [];
-  
+
 // //   function getItems() {
 // //       var storedHistory = JSON.parse(localStorage.getItem("searchHistory"));
 // //       if (storedHistory !== null) {
 // //           searchHistory = storedHistory;
 // //       };
-  
+
 // //       for (i = 0; i < searchHistory.length; i++) {
 // //           if (i == 8) {
 // //               break;
 // //             }
-  
+
 // //             historyButton = $("<a>").attr({
 // //               class: "list-group-item list-group-item-action",
 // //               href: "#"
 // //           });
-  
+
 // //           historyButton.text(searchHistory[i]);
 // //           $("#searchList").append(historyButton);
 // //       }
 // //   };
-  
+
 // //   getItems();
