@@ -17,24 +17,41 @@ function searchCity(cityname) {
 
         var cityNameEl = $("<h2>").text(response.name);
         var displayMainDate = cityNameEl.append(" " + mainDate);
-        var tempEL = $("<p>").text("Tempraturer: " + response.main.temp);
+        var tempEL = $("<p>").text("Temperature: " + response.main.temp);
         var humEl = $("<p>").text("Humidity: " + response.main.humidity);
         var windEl = $("<p>").text("Wind Speed: " + response.wind.speed);
         var currentweather = response.weather[0].main;
-
+        
+        // Rain
         if (currentweather === "Rain") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
+        // Clouds
         } else if (currentweather === "Clouds") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
+        // Clear
         } else if (currentweather === "Clear") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/01d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
         }
+        // Drizzle
         else if (currentweather === "Drizzle") {
            var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
            currentIcon.attr("style", "height: 60px; width: 60px");
+        }
+        // Snow
+        else if (currentweather === "Snow") {
+           var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
+           currentIcon.attr("style", "height: 60px; width: 60px");
+        }
+        // newDiv variable will create an HTML <div> to append new el to page
+        var newDiv = $('<div>');
+
+        newDiv.append(displayMainDate, currentIcon, tempEL, humEl, windEl);
+
+        $("#current").html(newDiv);
+
         
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
