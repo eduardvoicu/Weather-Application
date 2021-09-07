@@ -15,7 +15,12 @@ function searchCity(cityname) {
         $("#current").empty();
        var mainDate = moment().format('L');
 
-
+       var cityNameEl = $("<h2>").text(response.name);
+       var displayMainDate = cityNameEl.append(" " + mainDate);
+       var tempEL = $("<p>").text("Tempraturer: " + response.main.temp);
+       var humEl = $("<p>").text("Humidity: " + response.main.humidity);
+       var windEl = $("<p>").text("Wind Speed: " + response.wind.speed);
+       var currentweather = response.weather[0].main;
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
