@@ -162,25 +162,6 @@ $("#searchhistory").on('click', '.btn', function(event) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
 // function initPage() {
@@ -198,7 +179,6 @@ $("#searchhistory").on('click', '.btn', function(event) {
 //     console.log(searchHistory);
 
 //     // API KEY variable
-//     var key = "213cba83ade6abe9c240474e66a3a22f";
 
 //     // When user enters city name and clicks search, function will start
 //     // It is using the saved CITY name to execute the CURRENT conditions from the OpenWeaterAPI

@@ -10,9 +10,23 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid text-center text-light bg-dark">
+        <h1>Weather Dashboard</h1>
+    </div>
+    <div class="container">
+        <div class="clearfix">
+            <div class="col-4 float-left">
+                <nav class="navbar navbar-light bg-light shadow-lg p-3 mb-5 bg-white rounded">
+                    <h4>Search for a City:</h4>
+                    <form class="form-inline">
+                            <input id="city-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button id="select-city" class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+   
+   <!-- <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</span>
     </nav>
+    
     <div class="container">
         <div class="row">
             <div class="col-4 bg-light">
@@ -73,9 +87,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 <!-- https://axios-http.com/docs/intro Axios API for promise based HTTP client and node.js -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
