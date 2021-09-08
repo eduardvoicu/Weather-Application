@@ -21,29 +21,29 @@ function searchCity(cityname) {
         var humEl = $("<p>").text("Humidity: " + response.main.humidity);
         var windEl = $("<p>").text("Wind Speed: " + response.wind.speed);
         var currentweather = response.weather[0].main;
-        
+
         // Rain
         if (currentweather === "Rain") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
-        // Clouds
+            // Clouds
         } else if (currentweather === "Clouds") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
-        // Clear
+            // Clear
         } else if (currentweather === "Clear") {
             var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/01d.png");
             currentIcon.attr("style", "height: 60px; width: 60px");
         }
         // Drizzle
         else if (currentweather === "Drizzle") {
-           var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
-           currentIcon.attr("style", "height: 60px; width: 60px");
+            var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
+            currentIcon.attr("style", "height: 60px; width: 60px");
         }
         // Snow
         else if (currentweather === "Snow") {
-           var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
-           currentIcon.attr("style", "height: 60px; width: 60px");
+            var currentIcon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
+            currentIcon.attr("style", "height: 60px; width: 60px");
         }
         // newDiv variable will create an HTML <div> to append new el to page
         var newDiv = $('<div>');
@@ -51,38 +51,79 @@ function searchCity(cityname) {
         newDiv.append(displayMainDate, currentIcon, tempEL, humEl, windEl);
 
         $("#current").html(newDiv);
-    
-    // 5 Day Forecast
-    $.ajax({
-        url: queryURLforcast,
-        method: 'GET'
-    }).then(function (response) {
-        // Results variable is storing an array of the results.
-        var results = response.list;
-        // creating the 5 day div spaces below will
-        $("#5day").empty();
-        // HTML for the 5 day Forecast below
-        for (var i = 0; i < results.length; i += 8) {
-            var fiveDayDiv = $("<div class='card shadow-lg text-white bg-primary mx-auto mb-10 p-2' style='width: 8.5rem; height: 11rem;'>");
-            
-            // variables below will store the responses for the info it called earlier
-            var date = results[i].dt_txt;
-            var setD = date.substr(0,10)
-            var temp = results[i].main.temp;
-            var hum = results[i].main.humidity;
-            // variable that create tags with results from retrieved information from earlier
-            var h5date = $("<h5 class='card-title'>").text(setD);
-            var pTemp = $("<p class='card-text'>").text("Temp: " + temp);;
-            var pHum = $("<p class='card-text'>").text("Humidity " + hum);;
 
-            var weather = results[i].weather[0].main
-            // 
-            if (weather === "Rain") {
-                var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
-                icon.attr("style", "height: 40px; width: 40px");
-            } else if (weather === "Clouds") {
-                var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
-                icon.attr("style", "height: 40px; width: 40px");
+        // 5 Day Forecast
+        $.ajax({
+            url: queryURLforcast,
+            method: 'GET'
+        }).then(function (response) {
+            // Results variable is storing an array of the results.
+            var results = response.list;
+            // creating the 5 day div spaces below will
+            $("#5day").empty();
+            // HTML for the 5 day Forecast below
+            for (var i = 0; i < results.length; i += 8) {
+                var fiveDayDiv = $("<div class='card shadow-lg text-white bg-primary mx-auto mb-10 p-2' style='width: 8.5rem; height: 11rem;'>");
+
+                // variables below will store the responses for the info it called earlier
+                var date = results[i].dt_txt;
+                var setD = date.substr(0, 10)
+                var temp = results[i].main.temp;
+                var hum = results[i].main.humidity;
+                // variable that create tags with results from retrieved information from earlier
+                var h5date = $("<h5 class='card-title'>").text(setD);
+                var pTemp = $("<p class='card-text'>").text("Temp: " + temp);;
+                var pHum = $("<p class='card-text'>").text("Humidity " + hum);;
+
+                var weather = results[i].weather[0].main
+                // 
+                if (weather === "Rain") {
+                    var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
+                    icon.attr("style", "height: 40px; width: 40px");
+                } else if (weather === "Clouds") {
+                    var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
+                    icon.attr("style", "height: 40px; width: 40px");
+                }
+                else if (weather === "Clear") {
+                    var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/01d.png");
+                    icon.attr("style", "height: 40px; width: 40px");
+                }
+                else if (weather === "Drizzle") {
+                    var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
+                    icon.attr("style", "height: 40px; width: 40px");
+                }
+                else if (weather === "Snow") {
+                    var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
+                    icon.attr("style", "height: 40px; width: 40px");
+                }
+                // appending below
+                fiveDayDiv.append(h5date);
+                fiveDayDiv.append(icon);
+                fiveDayDiv.append(pTemp);
+                fiveDayDiv.append(pHum);
+                $("#5day").append(fiveDayDiv);
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // AXIOS alternate way I plan on doing this at a later date. Disregard for now.
 // Function for initiliazing the page with const variables
