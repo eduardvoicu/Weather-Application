@@ -1,4 +1,4 @@
-moment().format('L');
+// moment().format('L');
 
 // Function for current city search
 function searchCity(cityname) {
@@ -13,6 +13,7 @@ function searchCity(cityname) {
         console.log(queryURL);
         // content will be put in empty divs with respective IDs
         $("#current").empty();
+        // Trying to see what needs to be appended here.
         var mainDate = moment().format('L');
 
         var cityNameEl = $("<h2>").text(response.name);
@@ -124,9 +125,8 @@ function searchCity(cityname) {
         }
 
     });
-    pageLoad();
 }
-
+pageLoad();
 // Event Handler for city search
 
 $("#select-city").on("click", function (event) {
