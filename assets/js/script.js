@@ -103,8 +103,28 @@ function searchCity(cityname) {
                 fiveDayDiv.append(pHum);
                 $("#5day").append(fiveDayDiv);
             }
-
+    
         });
+        pageLoad();
+    }
+
+// Event Handler for city search
+
+    $("#select-city").on("click", function (event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    // Storing the city name
+    var cityInput = $("#city-input").val().trim();
+    //save search term to local storage.....
+    var textContent = $(this).siblings("input").val();
+    var storearr = [];
+    storearr.push(textContent);
+    localStorage.setItem('cityName', JSON.stringify(storearr));
+  
+    searchCity(cityInput);
+    pageLoad();
+});
+
 
 
 
