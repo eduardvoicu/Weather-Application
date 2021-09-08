@@ -10,7 +10,7 @@ A USER WOULD search for. When USER hits search, USER is presented with a current
 IT also has a SEARCH HISTORY to REFRESH their memory of PREVIOUS searches.
 ```
 ## Screenshot
-[!screenshot](.assets/images/weather-dashboard.png)
+![screenshot](./assets/images/weather-dashboard.png)
 
 ## Links
 [Github Deployed Page](https://eduardvoicu.github.io/Weather-Application/)
